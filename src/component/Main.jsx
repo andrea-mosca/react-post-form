@@ -1,21 +1,36 @@
 import axios from "axios";
+import { useState } from "react";
 
 const apiUrl = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts";
 
 export default function Main() {
+  const [formData, setFormData] = useState({
+    author: "",
+    title: "",
+    body: "",
+    public: false,
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <main>
       <div className="container">
         <h2>Crea un nuovo post</h2>
-        <form onSubmit={""}>
+        <form onSubmit={handleFormSubmit}>
           <div>
             <label className="form-label">Autore:</label>
             <input
               className="form-control"
               type="text"
               name="author"
-              value={""}
-              onChange={""}
+              value={formData.author}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -25,8 +40,8 @@ export default function Main() {
               className="form-control"
               type="text"
               name="title"
-              value={""}
-              onChange={""}
+              value={formData.title}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -35,8 +50,8 @@ export default function Main() {
             <textarea
               className="form-control"
               name="body"
-              value={""}
-              onChange={""}
+              value={formData.body}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -46,8 +61,8 @@ export default function Main() {
                 className="form-check-input"
                 type="checkbox"
                 name="public"
-                checked={""}
-                onChange={""}
+                checked={formData.public}
+                onChange={handleInputChange}
               />
               Rendi pubblico
             </label>
