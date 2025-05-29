@@ -12,7 +12,12 @@ export default function Main() {
   });
 
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    setFormData((formData) => ({
+      ...formData,
+      [e.target.name]: value,
+    }));
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
