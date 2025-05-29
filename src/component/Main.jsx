@@ -30,56 +30,58 @@ export default function Main() {
   return (
     <main>
       <div className="container">
-        <h2>Crea un nuovo post</h2>
-        <form onSubmit={handleFormSubmit}>
-          <div>
-            <label className="form-label">Autore:</label>
-            <input
-              className="form-control"
-              type="text"
-              name="author"
-              value={formData.author}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div>
-            <label className="form-label">Titolo:</label>
-            <input
-              className="form-control"
-              type="text"
-              name="title"
-              value={formData.title}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div>
-            <label className="form-label">Contenuto:</label>
-            <textarea
-              className="form-control"
-              name="body"
-              value={formData.body}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="form-check">
-            <label className="form-check-label">
+        <div className="mt-5 card p-3 text-bg-dark">
+          <h2>Create new post</h2>
+          <form onSubmit={handleFormSubmit}>
+            <div>
+              <label className="form-label">Author:</label>
               <input
-                className="form-check-input"
-                type="checkbox"
-                name="public"
-                checked={formData.public}
+                className="form-control"
+                type="text"
+                name="author"
+                value={formData.author}
                 onChange={handleInputChange}
+                required
               />
-              Rendi pubblico
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Invia
-          </button>
-        </form>
+            </div>
+            <div>
+              <label className="form-label">Title:</label>
+              <input
+                className="form-control"
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div>
+              <label className="form-label">Content:</label>
+              <textarea
+                className="form-control"
+                name="body"
+                value={formData.body}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-check">
+              <label className="form-check-label">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  name="public"
+                  checked={formData.public}
+                  onChange={handleInputChange}
+                />
+                Make public
+              </label>
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Invia
+            </button>
+          </form>
+        </div>
       </div>
     </main>
   );
