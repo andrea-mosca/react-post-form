@@ -16,6 +16,10 @@ export default function Main() {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    axios.post(apiUrl, formData).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
